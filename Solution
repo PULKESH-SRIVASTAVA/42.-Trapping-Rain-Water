@@ -1,0 +1,28 @@
+class Solution {
+    public int trap(int[] height) {
+    int sum=0;
+        int left=0;
+        int right=height.length-1;
+        int maxl=0;
+        int maxr=0;
+        while(left<right){
+            if(height[left]<=height[right]){
+                if(height[left]>=maxl)
+                    maxl=height[left];
+                else 
+                    sum+=maxl-height[left];
+                left++;
+            }
+            else{
+                if(height[right]>=maxr)
+                    maxr=height[right];
+                else 
+                    sum+=maxr-height[right];
+                right--;
+            }
+        }
+        return sum;
+    }
+}
+// T- O(N)
+// S- O(1)
